@@ -179,6 +179,13 @@ class Api
         ]);
     }
 
+    public function publishItem(string $collectionId, array $itemIds)
+    {
+        return $this->put("/collections/{$collectionId}/items/publish", [
+            'itemIds' => $itemIds,
+        ]);
+    }
+
     public function removeItem(string $collectionId, $itemId)
     {
         return $this->delete("/collections/{$collectionId}/items/{$itemId}");
