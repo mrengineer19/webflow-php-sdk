@@ -174,15 +174,8 @@ class Api
 
     public function updateItem(string $collectionId, string $itemId, array $fields, bool $live = false)
     {
-        return $this->put("/collections/{$collectionId}/items/{$itemId}" . ($live ? "?live=true" : ""), [
+        return $this->put("/collections/{$collectionId}/items/{$itemId}?live={$live}", [
             'fields' => $fields,
-        ]);
-    }
-
-    public function publishItem(string $collectionId, array $itemIds)
-    {
-        return $this->put("/collections/{$collectionId}/items/publish", [
-            'itemIds' => $itemIds,
         ]);
     }
 
